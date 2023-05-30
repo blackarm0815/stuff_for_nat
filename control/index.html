@@ -35,33 +35,49 @@
     <div id = 'boop' class = 'control'>boop</div>
     <pre id = 'output'></pre>
     <script>
+      // this does the GET request
       const httpGet = (
         mouseEvent,
       ) => {
-        let urlString = '';
+        // find the element that is under the mouse cursor
         const selectedElement = document.elementFromPoint(mouseEvent.x, mouseEvent.y);
+        // continue if element is found
         if (selectedElement !== null) {
-          urlString = selectedElement.dataset.url;
+          // pull the url string out of the element
+          const urlString = selectedElement.dataset.url;
+          // contine if the url string was found
           if (urlString !== undefined) {
+            // use fetch to GET the full url, without caching the result
             fetch(`https://blackarm0815.com/api/${urlString}`, {cache: "no-cache"})
-              .then((response) => response.json())
-              .then((json) => console.log(json));
-              }
+              .then((response) => console.log(response));
+              // .then((response) => response.json())
+              // .then((json) => console.log(json));
+          }
         }
       };
+      // add event listeners to the divs and store their url strings
       const eventListeners = () => {
         let divElement;
+        // find the element
         divElement = document.getElementById('beep');
+        // continue if it is found
         if (divElement !== null) {
+          // add the event listener
           divElement.addEventListener('click', httpGet);
+          // store the url string in the element
           divElement.dataset.url = 'beep';
         }
+        // find the element
         divElement = document.getElementById('boop');
+        // continue if it is found
         if (divElement !== null) {
+          // add the event listener
           divElement.addEventListener('click', httpGet);
+          // store the url string in the element
           divElement.dataset.url = 'boop';
         }
       };
+      // call the event listener function to set everything up
       eventListeners();
     </script>
   </body>
