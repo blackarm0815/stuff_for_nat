@@ -1,0 +1,68 @@
+
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <style>
+      .control {
+        background-color: #dedeff;
+        border: 1px solid #898989;
+        border-radius: 20px;
+        display: inline-block;
+        font-size: 400%;
+        height: 78px;
+        margin: 20px;
+        padding: 20px;
+        position: absolute;
+        width: 150px;
+      }
+      #beep {
+        background-color: #9e9eff;
+        left: 100px;
+        top: 100px;
+      }
+      #boop {
+        background-color: #fd7cff;
+        left: 600px;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = 'beep' class = 'control'>beep</div>
+    <div id = 'boop' class = 'control'>boop</div>
+    <pre id = 'output'></pre>
+    <script>
+      const httpGet = (
+        mouseEvent,
+      ) => {
+        let urlString = '';
+        const selectedElement = document.elementFromPoint(mouseEvent.x, mouseEvent.y);
+        if (selectedElement !== null) {
+          urlString = selectedElement.dataset.url;
+          if (urlString !== undefined) {
+            fetch(`https://blackarm0815.com/api/${urlString}`, {cache: "no-cache"})
+              .then((response) => response.json())
+              .then((json) => console.log(json));
+              }
+        }
+      };
+      const eventListeners = () => {
+        let divElement;
+        divElement = document.getElementById('beep');
+        if (divElement !== null) {
+          divElement.addEventListener('click', httpGet);
+          divElement.dataset.url = 'beep';
+        }
+        divElement = document.getElementById('boop');
+        if (divElement !== null) {
+          divElement.addEventListener('click', httpGet);
+          divElement.dataset.url = 'boop';
+        }
+      };
+      eventListeners();
+    </script>
+  </body>
+</html>
