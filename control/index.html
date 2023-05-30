@@ -6,6 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <style>
+      /* styles that start with a dot are classes. these can be applied to multiple elements */
       .control {
         background-color: #dedeff;
         border: 1px solid #898989;
@@ -18,6 +19,7 @@
         position: absolute;
         width: 150px;
       }
+      /* styles that start with a # are IDs. these refer to one specific element  */
       #beep {
         background-color: #9e9eff;
         left: 100px;
@@ -31,9 +33,9 @@
     </style>
   </head>
   <body>
+    <!-- these are the divs that are used as buttons on the page the have both an id and a class-->
     <div id = 'beep' class = 'control'>beep</div>
     <div id = 'boop' class = 'control'>boop</div>
-    <pre id = 'output'></pre>
     <script>
       // this does the GET request
       const httpGet = (
