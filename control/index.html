@@ -54,6 +54,7 @@
           if (urlString !== undefined) {
             // use fetch to GET the full url, without caching the result
             fetch(`https://blackarm0815.com/api/${urlString}`, {cache: "no-cache"})
+              // wait for the response and log it to the console
               .then((response) => console.log(response));
           }
         }
