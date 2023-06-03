@@ -1,13 +1,12 @@
-
 <html>
   <head>
     <!-- regular meta stuff -->
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
+    <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+    <meta content='utf-8' http-equiv='encoding'>
     <!-- meta that stops the website hmtl itself getting cached -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+    <meta http-equiv='Pragma' content='no-cache' />
+    <meta http-equiv='Expires' content='0' />
     <style>
       /* styles that start with a dot are classes. these can be applied to multiple elements */
       .control {
@@ -53,7 +52,7 @@
           // contine if the url string was found
           if (urlString !== undefined) {
             // use fetch to GET the full url, without caching the result
-            fetch(`https://blackarm0815.com/api/${urlString}`, {cache: "no-cache"})
+            fetch(`https://blackarm0815.com/api/${urlString}`, {cache: 'no-cache'})
               // wait for the response and log it to the console
               .then((response) => console.log(response));
           }
