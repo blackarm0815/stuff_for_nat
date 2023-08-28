@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hacked leaderboard</title>
+  <link rel="icon" href="tetrisfavicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <style>
+  </style>
+</head>
+<body>
+<h1>deletes an entry by name</h1>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+<script src="cnfg.js"></script>
+
+<script>
+  const nameToDelete = 'brixy';
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // get the leader board data
+  const leaderboardRef = firebase.database().ref("leaderboard");
+
+  // Retrieve the leaderboard data and delete the entry by name
+  leaderboardRef.once("value", function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+      const entry = childSnapshot.val();
+      const entryKey = childSnapshot.key;
+      if (entry.name === nameToDelete) {
+        leaderboardRef.child(entryKey).remove();
+      }
+    });
+  });
+</script>
+</body>
+</html>

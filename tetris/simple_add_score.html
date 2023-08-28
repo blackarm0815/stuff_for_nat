@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hacked leaderboard</title>
+  <link rel="icon" href="tetrisfavicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <style>
+  </style>
+</head>
+<body>
+<h1>edit the name and score variables and refresh this page in your browser :D</h1>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+<script src="cnfg.js"></script>
+
+<script>
+  const name = 'brixy';
+  const score = 1234;
+
+  // // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Get a reference to the Firebase Realtime Database
+  const database = firebase.database();
+  const serverTimestamp = firebase.database.ServerValue.TIMESTAMP;
+
+  // Push the score and name to the "leaderboard" node
+  database.ref("leaderboard").push({
+    name: name,
+    score: score,
+    timestamp: serverTimestamp,
+  });
+  
+</script>
+</body>
+</html>
