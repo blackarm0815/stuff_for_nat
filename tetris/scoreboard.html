@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>hacked leaderboard</title>
+  <!-- <link rel='icon' href='tetrisfavicon.ico' type='image/x-icon'> -->
+  <meta charset='UTF-8'>
+  <style>
+  </style>
+</head>
+<body>
+  <h3>name</h3>
+  <input type = 'text' id = 'name'>
+  <h3>score</h3>
+  <input type = 'number' id = 'score'>
+  <br/><br/>
+  <button type='button' id = 'uploadButton'>upload score</button>
+  <br/><br/>
+  <br/><br/>
+  <h3>name to remove</h3>
+  <input type = 'text' id = 'removeName'>
+  <br/><br/>
+  <button type='button' id = 'removeButton'>remove score</button>
+<script src='https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js'></script>
+<script src='https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js'></script>
+<script src='cnfg.js'></script>
+
+<script>
+  // setup
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+  const serverTimestamp = firebase.database.ServerValue.TIMESTAMP;
+
+  const upload = () => {
+    const scoreNameInput = document.getElementById('name');
+    const scoreValueInput = document.getElementById('score');
+    if (scoreNameInput !== null && scoreValueInput !== null) {
+      const scoreName = scoreNameInput.value;
+      const scoreValue = scoreValueInput.value;
+      if (scoreName !== '' && scoreValue !== '') {
+        // Push the score and name to the 'leaderboard' node
+        database.ref('leaderboard').push({
+          name: scoreName,
+          score: scoreValue,
+          timestamp: serverTimestamp,
+        });
+      }
+    }
+  };
+
+  const remove = () => {
+    const removeNameInput = document.getElementById('removeName');
+    if (removeNameInput) {
+      const removeName = removeNameInput.value;
+      if (removeName !== '') {
+        const leaderboardRef = firebase.database().ref("leaderboard");
+        // Retrieve the leaderboard data and delete the entry by name
+        leaderboardRef.once("value", function (snapshot) {
+          snapshot.forEach(function (childSnapshot) {
+            const entry = childSnapshot.val();
+            const entryKey = childSnapshot.key;
+            if (entry.name === removeName) {
+              leaderboardRef.child(entryKey).remove();
+            }
+          });
+        });
+      }
+    }
+  };
+
+  const setupEventListeners = () => {
+    const uploadButton = document.getElementById('uploadButton');
+    if (uploadButton !== null) {
+      uploadButton.addEventListener('click', upload);
+    }
+    const removeButton = document.getElementById('removeButton');
+    if (removeButton !== null) {
+      removeButton.addEventListener('click', remove);
+    }
+  }
+
+  setupEventListeners();
+
+</script>
+</body>
+</html>
