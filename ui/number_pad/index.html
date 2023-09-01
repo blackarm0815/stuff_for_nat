@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <!-- regular meta stuff -->
+    <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+    <meta content='utf-8' http-equiv='encoding'>
+    <!-- meta that stops the website hmtl itself getting cached -->
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+    <meta http-equiv='Pragma' content='no-cache' />
+    <meta http-equiv='Expires' content='0' />
+    <style>
+      .button {
+        box-sizing: border-box;
+        position: absolute;
+        background-color: rgb(197, 204, 255);
+        height: 90px;
+        padding-top: 5px;
+        padding-left: 25px;
+        font-size: 74px;
+        border-radius: 5px;
+        border-width: 1px;
+        border-color: black;
+        border-style: solid;
+        cursor: pointer;
+      }
+      .buttonWidth0 {
+        width: 90px;
+      }
+      .buttonWidth1 {
+        width: 190px;
+      }
+      .column0 {
+        left: 10px;
+      }
+      .column1 {
+        left: 110px;
+      }
+      .column2 {
+        left: 210px;
+      }
+      .row0 {
+        top: 40px;
+      }
+      .row1 {
+        top: 140px;
+      }
+      .row2 {
+        top: 240px;
+      }
+      .row3 {
+        top: 340px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>open the console and press the buttons</p>
+    <div id = 'button0' class = 'button buttonWidth0 column0 row3'>0</div>
+    <div id = 'button1' class = 'button buttonWidth0 column0 row2'>1</div>
+    <div id = 'button2' class = 'button buttonWidth0 column1 row2'>2</div>
+    <div id = 'button3' class = 'button buttonWidth0 column2 row2'>3</div>
+    <div id = 'button4' class = 'button buttonWidth0 column0 row1'>4</div>
+    <div id = 'button5' class = 'button buttonWidth0 column1 row1'>5</div>
+    <div id = 'button6' class = 'button buttonWidth0 column2 row1'>6</div>
+    <div id = 'button7' class = 'button buttonWidth0 column0 row0'>7</div>
+    <div id = 'button8' class = 'button buttonWidth0 column1 row0'>8</div>
+    <div id = 'button9' class = 'button buttonWidth0 column2 row0'>9</div>
+    <div id = 'buttonClear' class = 'button buttonWidth1 column1 row3'>clear</div>
+    <script>
+      const pressButton0 = () => {
+        console.log('0');
+      }
+      const pressButton1 = () => {
+        console.log('1');
+      }
+      const pressButton2 = () => {
+        console.log('2');
+      }
+      const pressButton3 = () => {
+        console.log('3');
+      }
+      const pressButton4 = () => {
+        console.log('4');
+      }
+      const pressButton5 = () => {
+        console.log('5');
+      }
+      const pressButton6 = () => {
+        console.log('6');
+      }
+      const pressButton7 = () => {
+        console.log('7');
+      }
+      const pressButton8 = () => {
+        console.log('8');
+      }
+      const pressButton9 = () => {
+        console.log('9');
+      }
+      const pressButtonClear = () => {
+        console.clear();
+      }
+      // add event listeners to the divs and store their url strings
+      const eventListeners = () => {
+        const button0 = document.getElementById('button0');
+        if (button0 !== null) {
+          button0.addEventListener('click', pressButton0);
+        }
+        const button1 = document.getElementById('button1');
+        if (button1 !== null) {
+          button1.addEventListener('click', pressButton1);
+        }
+        const button2 = document.getElementById('button2');
+        if (button2 !== null) {
+          button2.addEventListener('click', pressButton2);
+        }
+        const button3 = document.getElementById('button3');
+        if (button3 !== null) {
+          button3.addEventListener('click', pressButton3);
+        }
+        const button4 = document.getElementById('button4');
+        if (button4 !== null) {
+          button4.addEventListener('click', pressButton4);
+        }
+        const button5 = document.getElementById('button5');
+        if (button5 !== null) {
+          button5.addEventListener('click', pressButton5);
+        }
+        const button6 = document.getElementById('button6');
+        if (button6 !== null) {
+          button6.addEventListener('click', pressButton6);
+        }
+        const button7 = document.getElementById('button7');
+        if (button7 !== null) {
+          button7.addEventListener('click', pressButton7);
+        }
+        const button8 = document.getElementById('button8');
+        if (button8 !== null) {
+          button8.addEventListener('click', pressButton8);
+        }
+        const button9 = document.getElementById('button9');
+        if (button9 !== null) {
+          button9.addEventListener('click', pressButton9);
+        }
+        const buttonClear = document.getElementById('buttonClear');
+        if (buttonClear !== null) {
+          buttonClear.addEventListener('click', pressButtonClear);
+        }
+      };
+      // call the event listener function to set everything up
+      eventListeners();
+    </script>
+  </body>
+</html>
