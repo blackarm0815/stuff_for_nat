@@ -7,6 +7,8 @@
     <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
     <meta http-equiv='Pragma' content='no-cache' />
     <meta http-equiv='Expires' content='0' />
+    <title>numpad</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
       .button {
         box-sizing: border-box;
@@ -98,7 +100,6 @@
       const pressButtonClear = () => {
         console.clear();
       }
-      // add event listeners to the divs and store their url strings
       const eventListeners = () => {
         const button0 = document.getElementById('button0');
         if (button0 !== null) {
@@ -145,7 +146,6 @@
           buttonClear.addEventListener('click', pressButtonClear);
         }
       };
-      // call the event listener function to set everything up
       eventListeners();
     </script>
   </body>
