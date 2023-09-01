@@ -40,21 +40,26 @@
         left: 210px;
       }
       .row0 {
-        top: 40px;
+        top: 10px;
       }
       .row1 {
-        top: 140px;
+        top: 110px;
       }
       .row2 {
-        top: 240px;
+        top: 210px;
       }
       .row3 {
-        top: 340px;
+        top: 310px;
+      }
+      #output {
+        font-size: 74px;
+        left: 10px;
+        position: absolute;
+        top: 500px;
       }
     </style>
   </head>
   <body>
-    <p>open the console and press the buttons</p>
     <div id = 'button0' class = 'button buttonWidth0 column0 row3'>0</div>
     <div id = 'button1' class = 'button buttonWidth0 column0 row2'>1</div>
     <div id = 'button2' class = 'button buttonWidth0 column1 row2'>2</div>
@@ -66,39 +71,59 @@
     <div id = 'button8' class = 'button buttonWidth0 column1 row0'>8</div>
     <div id = 'button9' class = 'button buttonWidth0 column2 row0'>9</div>
     <div id = 'buttonClear' class = 'button buttonWidth1 column1 row3'>clear</div>
+    <div id = 'output'>0</div>
     <script>
+      let score = 0;
+      const updateOutput = () => {
+        const output = document.getElementById('output');
+        if (output !== null) {
+          output.innerText = score.toString();
+        }
+
+      }
       const pressButton0 = () => {
-        console.log('0');
+        score = (score * 10) + 0;
+        updateOutput();
       }
       const pressButton1 = () => {
-        console.log('1');
+        score = (score * 10) + 1;
+        updateOutput();
       }
       const pressButton2 = () => {
-        console.log('2');
+        score = (score * 10) + 2;
+        updateOutput();
       }
       const pressButton3 = () => {
-        console.log('3');
+        score = (score * 10) + 3;
+        updateOutput();
       }
       const pressButton4 = () => {
-        console.log('4');
+        score = (score * 10) + 4;
+        updateOutput();
       }
       const pressButton5 = () => {
-        console.log('5');
+        score = (score * 10) + 5;
+        updateOutput();
       }
       const pressButton6 = () => {
-        console.log('6');
+        score = (score * 10) + 6;
+        updateOutput();
       }
       const pressButton7 = () => {
-        console.log('7');
+        score = (score * 10) + 7;
+        updateOutput();
       }
       const pressButton8 = () => {
-        console.log('8');
+        score = (score * 10) + 8;
+        updateOutput();
       }
       const pressButton9 = () => {
-        console.log('9');
+        score = (score * 10) + 9;
+        updateOutput();
       }
       const pressButtonClear = () => {
-        console.clear();
+        score = 0;
+        updateOutput();
       }
       const eventListeners = () => {
         const button0 = document.getElementById('button0');
